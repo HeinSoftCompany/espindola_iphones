@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espíndola Iphones - Tecnologia e Perfumaria</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFD700',
+                        secondary: '#FF6B35'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+  overflow: hidden;
+        }
+
+        .carousel-slide {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.8s ease-in-out;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .carousel-slide.prev {
+            transform: translateX(-100%);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .perfume-card {
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .perfume-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="fixed top-0 w-full bg-black z-50 shadow-lg">
+  <div class="container mx-auto px-6 py-4">
+    <nav class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="text-primary text-2xl font-['Pacifico']">
+        Espíndola Iphones
+      </div>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#inicio" class="text-white hover:text-primary">Início</a>
+        <div class="relative dropdown">
+          <button class="text-white hover:text-primary flex items-center space-x-1">
+            <span>Serviços</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="dropdown-menu absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl py-2 min-w-48">
+            <a href="#servicos" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-black">Produtos</a>
+            <a href="#assistencia" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-black">Assistência Técnica</a>
+          </div>
+        </div>
+        <a href="#perfumes" class="text-white hover:text-primary">Perfumes</a>
+        <a href="#quem-somos" class="text-white hover:text-primary">Quem Somos</a>
+      </div>
+
+      <!-- Botões à direita -->
+      <div class="flex items-center space-x-4">
+        <button class="bg-primary text-black px-6 py-2 rounded-button font-semibold hover:bg-yellow-400">
+          Fale Conosco
+        </button>
+        <button class="md:hidden mobile-menu-button text-white text-2xl">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu Mobile (fora do <nav>, mas dentro do .container) -->
+    <div
+  class="mobile-menu hidden md:hidden mt-2 bg-black/90 backdrop-blur-sm rounded-b-lg"
+>
+  <nav class="flex flex-col divide-y divide-gray-700 text-left">
+    <a href="#inicio" class="px-6 py-4 text-white hover:text-primary">Início</a>
+    <details class="group">
+      <summary
+        class="px-6 py-4 flex justify-between items-center text-white hover:text-primary cursor-pointer"
+      >
+        Serviços
+        <i class="ri-arrow-down-s-line transition-transform group-open:rotate-180"></i>
+      </summary>
+      <div class="flex flex-col bg-black/80">
+        <a href="#servicos" class="px-8 py-3 text-gray-300 hover:text-white">Produtos</a>
+        <a href="#assistencia" class="px-8 py-3 text-gray-300 hover:text-white">
+          Assistência Técnica
+        </a>
+      </div>
+    </details>
+    <a href="#perfumes" class="px-6 py-4 text-white hover:text-primary">Perfumes</a>
+    <a href="#quem-somos" class="px-6 py-4 text-white hover:text-primary">Quem Somos</a>
+    <a
+      href="#contato"
+      class="mx-6 mt-4 mb-6 px-6 py-3 bg-primary text-black text-center rounded-button font-semibold hover:bg-yellow-400"
+    >
+      Fale Conosco
+    </a>
+  </nav>
+</div>
+  </div>
+</header>
+
+
+    <main>
+        <section id="inicio" class="relative h-screen overflow-hidden">
+            <div class="carousel-container relative h-full">
+                <div class="carousel-slide active absolute inset-0" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20smartphone%20store%20interior%20with%20sleek%20black%20and%20yellow%20design%20elements%2C%20premium%20technology%20display%2C%20minimalist%20swiss%20design%20aesthetic%2C%20warm%20lighting%2C%20professional%20retail%20environment&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div class="relative z-10 h-full flex items-center">
+                        <div class="container mx-auto px-6">
+                            <div class="max-w-2xl">
+                                <h1 class="text-5xl font-bold text-white mb-6">Tecnologia e Perfumaria Premium</h1>
+                                <p class="text-xl text-gray-200 mb-8">Descubra nossa seleção exclusiva de smartphones, acessórios JBL e perfumes importados</p>
+                                <button class="bg-primary text-black px-8 py-4 !rounded-button font-semibold text-lg hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                                    Explorar Produtos
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide absolute inset-0" style="background-image: url('https://readdy.ai/api/search-image?query=luxury%20perfume%20bottles%20display%20with%20elegant%20lighting%2C%20premium%20fragrance%20collection%2C%20sophisticated%20retail%20showcase%2C%20warm%20golden%20tones%2C%20swiss%20design%20minimalism&width=1920&height=1080&seq=hero2&orientation=landscape'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div class="relative z-10 h-full flex items-center">
+                        <div class="container mx-auto px-6">
+                            <div class="max-w-2xl">
+                                <h1 class="text-5xl font-bold text-white mb-6">Perfumes Exclusivos</h1>
+                                <p class="text-xl text-gray-200 mb-8">Fragrâncias masculinas e femininas das melhores marcas internacionais</p>
+                                <button class="bg-primary text-black px-8 py-4 !rounded-button font-semibold text-lg hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                                    Ver Perfumes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide absolute inset-0" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20smartphone%20repair%20service%20workspace%2C%20technical%20assistance%20tools%2C%20clean%20modern%20environment%2C%20precision%20equipment%2C%20swiss%20design%20aesthetic&width=1920&height=1080&seq=hero3&orientation=landscape'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div class="relative z-10 h-full flex items-center">
+                        <div class="container mx-auto px-6">
+                            <div class="max-w-2xl">
+                                <h1 class="text-5xl font-bold text-white mb-6">Assistência Técnica Especializada</h1>
+                                <p class="text-xl text-gray-200 mb-8">Avaliação gratuita e reparo profissional para seus dispositivos</p>
+                                <button class="bg-primary text-black px-8 py-4 !rounded-button font-semibold text-lg hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                                    Agendar Serviço
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+                <button class="carousel-dot w-3 h-3 rounded-full bg-primary transition-all"></button>
+                <button class="carousel-dot w-3 h-3 rounded-full bg-white bg-opacity-50 transition-all"></button>
+                <button class="carousel-dot w-3 h-3 rounded-full bg-white bg-opacity-50 transition-all"></button>
+            </div>
+        </section>
+
+        <section id="servicos" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Nossos Serviços</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Tecnologia de ponta com atendimento especializado</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="service-card bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
+                        <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-apple-line text-3xl text-gray-700"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Apple</h3>
+                        <p class="text-gray-600 mb-6">iPhones, iPads, MacBooks e acessórios originais Apple com garantia oficial</p>
+                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                            Ver Produtos
+                        </button>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
+                        <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-smartphone-line text-3xl text-gray-700"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Xiaomi</h3>
+                        <p class="text-gray-600 mb-6">Smartphones Xiaomi com a melhor relação custo-benefício do mercado</p>
+                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                            Ver Produtos
+                        </button>
+                    </div>
+                    
+                    <div class="service-card bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
+                        <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-headphone-line text-3xl text-gray-700"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">JBL</h3>
+                        <p class="text-gray-600 mb-6">Caixas de som, fones de ouvido e sistemas de áudio profissionais JBL</p>
+                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                            Ver Produtos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="perfumes" class="relative py-20 overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=luxury%20perfume%20bottles%20collection%20with%20elegant%20golden%20lighting%2C%20premium%20fragrance%20display%2C%20sophisticated%20amber%20and%20crystal%20bottles%2C%20warm%20atmospheric%20lighting%2C%20swiss%20design%20aesthetic&width=1920&height=1080&seq=perfume-bg&orientation=landscape'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div class="relative z-10 container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-white mb-4">Perfumaria Exclusiva</h2>
+                    <p class="text-xl text-gray-200 max-w-2xl mx-auto">Fragrâncias premium para todas as ocasiões</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="perfume-card bg-white bg-opacity-10 rounded-2xl p-8 text-center border border-white border-opacity-20">
+                        <div class="w-20 h-20 bg-primary bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-user-3-line text-3xl text-primary"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Perfumes Masculinos</h3>
+                        <p class="text-gray-200 mb-6">Fragrâncias marcantes e sofisticadas para o homem moderno</p>
+                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                            Explorar Masculinos
+                        </button>
+                    </div>
+                    
+                    <div class="perfume-card bg-white bg-opacity-10 rounded-2xl p-8 text-center border border-white border-opacity-20">
+                        <div class="w-20 h-20 bg-primary bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-user-2-line text-3xl text-primary"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Perfumes Femininos</h3>
+                        <p class="text-gray-200 mb-6">Essências delicadas e envolventes para a mulher elegante</p>
+                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                            Explorar Femininos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="assistencia" class="py-20 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Assistência Técnica</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Serviços especializados com garantia e qualidade</p>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-search-line text-3xl text-black"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Avaliação Gratuita</h3>
+                        <p class="text-gray-600">Diagnóstico completo sem custo para identificar problemas</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-smartphone-line text-3xl text-black"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Troca de Tela</h3>
+                        <p class="text-gray-600">Substituição de displays com peças originais e garantia</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-battery-line text-3xl text-black"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Baterias</h3>
+                        <p class="text-gray-600">Substituição de baterias para maior durabilidade</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center">
+                                <i class="ri-brush-line text-3xl text-black"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Limpeza do Aparelho</h3>
+                        <p class="text-gray-600">Limpeza profunda interna e externa dos dispositivos</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <button class="bg-black text-primary px-8 py-4 !rounded-button font-semibold text-lg hover:bg-gray-800 transition-colors whitespace-nowrap">
+                        Agendar Atendimento
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section id="quem-somos" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-8">Quem Somos</h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        A Espíndola Iphones é uma empresa especializada em tecnologia e perfumaria, oferecendo produtos premium e serviços de qualidade há mais de 10 anos no mercado.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-12">
+                        Nossa missão é proporcionar a melhor experiência em tecnologia e fragrâncias, combinando produtos de alta qualidade com atendimento personalizado e assistência técnica especializada.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">10+</div>
+                            <p class="text-gray-600">Anos de Experiência</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">5000+</div>
+                            <p class="text-gray-600">Clientes Satisfeitos</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">98%</div>
+                            <p class="text-gray-600">Taxa de Aprovação</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-black text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold text-primary mb-4">Termos e Políticas</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Termos de Uso</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Cookies</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">LGPD</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold text-primary mb-4">Trocas e Compras</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Política de Trocas</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Garantia</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Formas de Pagamento</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Entrega</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold text-primary mb-4">Suporte Técnico</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Central de Ajuda</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Agendamento</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Status do Reparo</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Orçamento</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold text-primary mb-4">Localização e Redes</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-gray-300 mb-2">Rua Comendador Miguel Gastão de Oliveira</p>
+                            <p class="text-gray-300">São José - Gravatá / PE</p>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-instagram-fill text-black"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-facebook-fill text-black"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-whatsapp-fill text-black"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Espíndola Iphones. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script id="carousel-functionality">
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active', 'prev');
+                    if (i === index) {
+                        slide.classList.add('active');
+                    } else if (i < index) {
+                        slide.classList.add('prev');
+                    }
+                });
+                
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.remove('bg-white', 'bg-opacity-50');
+                        dot.classList.add('bg-primary');
+                    } else {
+                        dot.classList.remove('bg-primary');
+                        dot.classList.add('bg-white', 'bg-opacity-50');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+            
+            setInterval(nextSlide, 5000);
+        });
+    </script>
+
+    <script id="smooth-scroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="mobile-menu">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+
+    <script id="mobile-menu">
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn  = document.querySelector('.mobile-menu-button');
+const menu = document.querySelector('.mobile-menu');
+btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    if (!btn || !menu) {
+      console.warn('Toggle button ou mobile-menu não encontrados');
+      return;
+    }
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  });
+</script>
+
+
+</body>
+</html>
