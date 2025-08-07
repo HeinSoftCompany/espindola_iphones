@@ -95,7 +95,7 @@
   <div class="container mx-auto px-6 py-4">
     <nav class="flex items-center justify-between">
       <!-- Logo -->
-      <div class="text-primary text-2xl font-['Pacifico']">
+      <div class="text-primary text-2xl">
         Espíndola Iphones
       </div>
 
@@ -118,49 +118,43 @@
 
       <!-- Botões à direita -->
       <div class="flex items-center space-x-4">
-        <button class="bg-primary text-black px-6 py-2 rounded-button font-semibold hover:bg-yellow-400">
+        <!-- Botão visível só em md+ -->
+        <a href="#contato"
+           class="hidden md:inline-block bg-primary text-black px-6 py-2 rounded-button font-semibold hover:bg-yellow-400 whitespace-nowrap">
           Fale Conosco
-        </button>
+        </a>
+        <!-- Hambúrguer só em < md -->
         <button class="md:hidden mobile-menu-button text-white text-2xl">
           <i class="ri-menu-line"></i>
         </button>
       </div>
     </nav>
 
-    <!-- Menu Mobile (fora do <nav>, mas dentro do .container) -->
-    <div
-  class="mobile-menu hidden md:hidden mt-2 bg-black/90 backdrop-blur-sm rounded-b-lg"
->
-  <nav class="flex flex-col divide-y divide-gray-700 text-left">
-    <a href="#inicio" class="px-6 py-4 text-white hover:text-primary">Início</a>
-    <details class="group">
-      <summary
-        class="px-6 py-4 flex justify-between items-center text-white hover:text-primary cursor-pointer"
-      >
-        Serviços
-        <i class="ri-arrow-down-s-line transition-transform group-open:rotate-180"></i>
-      </summary>
-      <div class="flex flex-col bg-black/80">
-        <a href="#servicos" class="px-8 py-3 text-gray-300 hover:text-white">Produtos</a>
-        <a href="#assistencia" class="px-8 py-3 text-gray-300 hover:text-white">
-          Assistência Técnica
+    <!-- Menu Mobile (aparece em < md) -->
+    <div class="mobile-menu hidden md:hidden mt-2 bg-black/90 backdrop-blur-sm rounded-b-lg">
+      <nav class="flex flex-col divide-y divide-gray-700 text-left">
+        <a href="#inicio" class="px-6 py-4 text-white hover:text-primary">Início</a>
+        <details class="group">
+          <summary class="px-6 py-4 flex justify-between items-center text-white hover:text-primary cursor-pointer">
+            Serviços
+            <i class="ri-arrow-down-s-line transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="flex flex-col bg-black/80">
+            <a href="#servicos" class="px-8 py-3 text-gray-300 hover:text-white">Produtos</a>
+            <a href="#assistencia" class="px-8 py-3 text-gray-300 hover:text-white">Assistência Técnica</a>
+          </div>
+        </details>
+        <a href="#perfumes" class="px-6 py-4 text-white hover:text-primary">Perfumes</a>
+        <a href="#quem-somos" class="px-6 py-4 text-white hover:text-primary">Quem Somos</a>
+        <!-- Único Fale Conosco no mobile -->
+        <a href="#contato"
+           class="mx-6 mt-4 mb-6 px-6 py-3 bg-primary text-black text-center rounded-button font-semibold hover:bg-yellow-400">
+          Fale Conosco
         </a>
-      </div>
-    </details>
-    <a href="#perfumes" class="px-6 py-4 text-white hover:text-primary">Perfumes</a>
-    <a href="#quem-somos" class="px-6 py-4 text-white hover:text-primary">Quem Somos</a>
-    <a
-      href="#contato"
-      class="mx-6 mt-4 mb-6 px-6 py-3 bg-primary text-black text-center rounded-button font-semibold hover:bg-yellow-400"
-    >
-      Fale Conosco
-    </a>
-  </nav>
-</div>
+      </nav>
+    </div>
   </div>
 </header>
-
-
     <main>
         <section id="inicio" class="relative h-screen overflow-hidden">
             <div class="carousel-container relative h-full">
@@ -218,92 +212,130 @@
         </section>
 
         <section id="servicos" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Nossos Serviços</h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Tecnologia de ponta com atendimento especializado</p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="service-card bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
-                        <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <div class="w-12 h-12 flex items-center justify-center">
-                                <i class="ri-apple-line text-3xl text-gray-700"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Apple</h3>
-                        <p class="text-gray-600 mb-6">iPhones, iPads, MacBooks e acessórios originais Apple com garantia oficial</p>
-                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
-                            Ver Produtos
-                        </button>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
-                        <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <div class="w-12 h-12 flex items-center justify-center">
-                                <i class="ri-smartphone-line text-3xl text-gray-700"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Xiaomi</h3>
-                        <p class="text-gray-600 mb-6">Smartphones Xiaomi com a melhor relação custo-benefício do mercado</p>
-                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
-                            Ver Produtos
-                        </button>
-                    </div>
-                    
-                    <div class="service-card bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
-                        <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <div class="w-12 h-12 flex items-center justify-center">
-                                <i class="ri-headphone-line text-3xl text-gray-700"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">JBL</h3>
-                        <p class="text-gray-600 mb-6">Caixas de som, fones de ouvido e sistemas de áudio profissionais JBL</p>
-                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
-                            Ver Produtos
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Nossos Serviços</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Tecnologia de ponta com atendimento especializado</p>
+    </div>
 
-        <section id="perfumes" class="relative py-20 overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=luxury%20perfume%20bottles%20collection%20with%20elegant%20golden%20lighting%2C%20premium%20fragrance%20display%2C%20sophisticated%20amber%20and%20crystal%20bottles%2C%20warm%20atmospheric%20lighting%2C%20swiss%20design%20aesthetic&width=1920&height=1080&seq=perfume-bg&orientation=landscape'); background-size: cover; background-position: center;">
-            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-            <div class="relative z-10 container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-white mb-4">Perfumaria Exclusiva</h2>
-                    <p class="text-xl text-gray-200 max-w-2xl mx-auto">Fragrâncias premium para todas as ocasiões</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="perfume-card bg-white bg-opacity-10 rounded-2xl p-8 text-center border border-white border-opacity-20">
-                        <div class="w-20 h-20 bg-primary bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <div class="w-12 h-12 flex items-center justify-center">
-                                <i class="ri-user-3-line text-3xl text-primary"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Perfumes Masculinos</h3>
-                        <p class="text-gray-200 mb-6">Fragrâncias marcantes e sofisticadas para o homem moderno</p>
-                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
-                            Explorar Masculinos
-                        </button>
-                    </div>
-                    
-                    <div class="perfume-card bg-white bg-opacity-10 rounded-2xl p-8 text-center border border-white border-opacity-20">
-                        <div class="w-20 h-20 bg-primary bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <div class="w-12 h-12 flex items-center justify-center">
-                                <i class="ri-user-2-line text-3xl text-primary"></i>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Perfumes Femininos</h3>
-                        <p class="text-gray-200 mb-6">Essências delicadas e envolventes para a mulher elegante</p>
-                        <button class="bg-primary text-black px-6 py-3 !rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap">
-                            Explorar Femininos
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Card Apple -->
+      <div
+        class="service-card bg-white rounded-2xl ring-1 ring-gray-200 shadow-2xl p-8 text-center
+               transition-shadow transition-transform duration-300 ease-in-out
+               hover:shadow-3xl hover:-translate-y-2 cursor-pointer">
+  <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <i class="ri-apple-line text-3xl text-gray-700"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Apple</h3>
+        <p class="text-gray-600 mb-6">
+          iPhones, iPads, MacBooks e acessórios originais Apple com garantia oficial
+        </p>
+        <button
+          class="bg-primary text-black px-6 py-3 rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap"
+        >
+          Ver Produtos
+        </button>
+      </div>
+
+      <!-- Card Xiaomi -->
+      <div
+        class="service-card bg-white rounded-2xl ring-1 ring-gray-200 shadow-2xl p-8 text-center
+               transition-shadow transition-transform duration-300 ease-in-out
+               hover:shadow-3xl hover:-translate-y-2 cursor-pointer">
+  <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <i class="ri-smartphone-line text-3xl text-gray-700"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Xiaomi</h3>
+        <p class="text-gray-600 mb-6">
+          Smartphones Xiaomi com a melhor relação custo-benefício do mercado
+        </p>
+        <button
+          class="bg-primary text-black px-6 py-3 rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap"
+        >
+          Ver Produtos
+        </button>
+      </div>
+
+      <!-- Card JBL -->
+      <div
+        class="service-card bg-white rounded-2xl ring-1 ring-gray-200 shadow-2xl p-8 text-center
+               transition-shadow transition-transform duration-300 ease-in-out
+               hover:shadow-3xl hover:-translate-y-2 cursor-pointer">
+  <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <i class="ri-headphone-line text-3xl text-gray-700"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">JBL</h3>
+        <p class="text-gray-600 mb-6">
+          Caixas de som, fones de ouvido e sistemas de áudio profissionais JBL
+        </p>
+        <button
+          class="bg-primary text-black px-6 py-3 rounded-button font-semibold hover:bg-yellow-400 transition-colors whitespace-nowrap"
+        >
+          Ver Produtos
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+        <section
+  id="perfumes"
+  class="relative py-20 overflow-hidden"
+  style="background-image: url('https://readdy.ai/api/search-image?query=luxury%20perfume%20bottles%20collection%20with%20elegant%20golden%20lighting%2C%20premium%20fragrance%20display%2C%20sophisticated%20amber%20and%20crystal%20bottles%2C%20warm%20atmospheric%20lighting%2C%20swiss%20design%20aesthetic&width=1920&height=1080&seq=perfume-bg&orientation=landscape'); background-size: cover; background-position: center;"
+>
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+  <div class="relative z-10 container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-white mb-4">Perfumaria Exclusiva</h2>
+      <p class="text-xl text-gray-200 max-w-2xl mx-auto">
+        Fragrâncias premium para todas as ocasiões
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Card Minimalista -->
+      <div
+        class="perfume-card bg-white bg-opacity-5 rounded-2xl p-8 text-center
+               transition-transform duration-300 ease-in-out
+               hover:-translate-y-2 cursor-pointer"
+      >
+        <i class="ri-user-3-line text-5xl text-primary mb-4"></i>
+        <h3 class="text-2xl font-semibold text-white mb-2">Perfumes Masculinos</h3>
+        <p class="text-gray-200 mb-6">
+          Fragrâncias marcantes e sofisticadas para o homem moderno
+        </p>
+        <a
+          href="#"
+          class="inline-block text-primary font-semibold underline hover:text-yellow-400 transition-colors"
+        >
+          Explorar Masculinos
+        </a>
+      </div>
+
+      <div
+        class="perfume-card bg-white bg-opacity-5 rounded-2xl p-8 text-center
+               transition-transform duration-300 ease-in-out
+               hover:-translate-y-2 cursor-pointer"
+      >
+        <i class="ri-user-2-line text-5xl text-primary mb-4"></i>
+        <h3 class="text-2xl font-semibold text-white mb-2">Perfumes Femininos</h3>
+        <p class="text-gray-200 mb-6">
+          Essências delicadas e envolventes para a mulher elegante
+        </p>
+        <a
+          href="#"
+          class="inline-block text-primary font-semibold underline hover:text-yellow-400 transition-colors"
+        >
+          Explorar Femininos
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         <section id="assistencia" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6">
@@ -373,11 +405,11 @@
                     </p>
                     <div class="grid md:grid-cols-3 gap-8">
                         <div class="text-center">
-                            <div class="text-4xl font-bold text-primary mb-2">10+</div>
+                            <div class="text-4xl font-bold text-primary mb-2">5+</div>
                             <p class="text-gray-600">Anos de Experiência</p>
                         </div>
                         <div class="text-center">
-                            <div class="text-4xl font-bold text-primary mb-2">5000+</div>
+                            <div class="text-4xl font-bold text-primary mb-2">1000+</div>
                             <p class="text-gray-600">Clientes Satisfeitos</p>
                         </div>
                         <div class="text-center">
@@ -389,7 +421,7 @@
             </div>
         </section>
     </main>
-    <footer class="bg-black text-white py-16">
+    <footer id="contato" class="bg-black text-white py-16">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
@@ -423,31 +455,49 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-bold text-primary mb-4">Localização e Redes</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="text-gray-300 mb-2">Rua Comendador Miguel Gastão de Oliveira</p>
-                            <p class="text-gray-300">São José - Gravatá / PE</p>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <div class="w-5 h-5 flex items-center justify-center">
-                                    <i class="ri-instagram-fill text-black"></i>
-                                </div>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <div class="w-5 h-5 flex items-center justify-center">
-                                    <i class="ri-facebook-fill text-black"></i>
-                                </div>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <div class="w-5 h-5 flex items-center justify-center">
-                                    <i class="ri-whatsapp-fill text-black"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <h3 class="text-lg font-bold text-primary mb-6">Redes e Localização</h3>
+  <div class="space-y-6">
+    <!-- redes -->
+   <div class="flex space-x-4">
+  <a
+    href="https://www.instagram.com/espindolaiphoness/"
+    target="_blank"
+    class="group w-10 h-10 bg-primary rounded-lg flex items-center justify-center
+           hover:bg-black transition-colors duration-300 cursor-pointer"
+  >
+    <i class="ri-instagram-fill text-black group-hover:text-yellow-400 transition-colors duration-300"></i>
+  </a>
+
+  <a
+    href="https://api.whatsapp.com/message/X3PRMW4EXZV3J1?autoload=1&app_absent=0"
+    target="_blank"
+    class="group w-10 h-10 bg-primary rounded-lg flex items-center justify-center
+           hover:bg-black transition-colors duration-300 cursor-pointer"
+  >
+    <i class="ri-whatsapp-fill text-black group-hover:text-yellow-400 transition-colors duration-300"></i>
+  </a>
+</div>
+
+
+
+    <!-- endereço -->
+    <div>
+      <p class="text-gray-300">Rua Comendador Miguel Gastão de Oliveira, 128B</p>
+      <p class="text-gray-300">São José – Gravatá / PE, 55641-440</p>
+    </div>
+
+    <!-- mapa responsivo -->
+    <div class="w-full rounded-lg overflow-hidden aspect-w-16 aspect-h-9">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.025808656756!2d-35.57667592490877!3d-8.200154091831733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aa37ef3bf6cc01%3A0xc8d270f31aba144e!2sEsp%C3%ADndola%20Iphones!5e0!3m2!1spt-BR!2sbr!4v1754590962559!5m2!1spt-BR!2sbr"
+        class="w-full h-full"
+        style="border:0;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
             </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
